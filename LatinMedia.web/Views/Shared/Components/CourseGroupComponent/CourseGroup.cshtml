@@ -1,0 +1,94 @@
+﻿@model IEnumerable<LatinMedia.DataLayer.Entities.Course.CourseGroup>
+<div class="main-menu-wrap">
+    <div class="menu-bar">
+        <nav>
+            <ul class="main-menu">
+                <li class="menu-item sub">
+                    <a href="#">
+                        دسته بندی ها
+
+                    </a>
+                    <!-- DROPDOWN -->
+                    <ul class="dropdown hover-effect closed">
+                        @foreach (var item in Model.Where(g => g.ParentId == null))
+                        {
+                            <li class="dropdown-item">
+                                <a href="/Course?selectedGroup=@item.GroupId">
+                                    @item.GroupTitle
+                                    <svg class="svg-arrow">
+                                        <use xlink:href="#svg-arrow"></use>
+                                    </svg>
+
+                                </a>
+                                @if (Model.Any(g => g.ParentId == item.GroupId))
+                                {
+                                    <ul class="dropdown closed">
+                                        @foreach (var sub in Model.Where(g => g.ParentId == item.GroupId))
+                                        {
+                                            <li class="dropdown-item">
+                                                <a href="/Course?selectedGroup=@sub.GroupId">
+                                                    @sub.GroupTitle
+                                                    <svg class="svg-arrow">
+                                                        <use xlink:href="#svg-arrow"></use>
+                                                    </svg>
+                                                </a>
+                                                @if (Model.Any(g => g.ParentId == sub.GroupId))
+                                                {
+                                                    <ul class="dropdown closed">
+                                                        @foreach (var sub2 in Model.Where(g => g.ParentId == sub.GroupId))
+                                                        {
+                                                            <li class="dropdown-item">
+                                                                <a href="/Course?selectedGroup=@sub2.GroupId">
+                                                                    @sub2.GroupTitle
+
+                                                                </a>
+                                                            </li>
+
+                                                        }
+                                                    </ul>
+                                                }
+                                            </li>
+
+                                        }
+                                    </ul>
+                                }
+
+
+
+
+
+                            </li>
+                        }
+
+                    </ul>
+
+                </li>
+                
+                <li class="menu-item">
+                    <a href="/">صفحه اصلی</a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="/Companies">شرکتها</a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="/Teachers">مدرسان</a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="services.html">خدمات</a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="shop-gridview-v1.html">محصولات انلاین</a>
+                </li>
+
+            </ul>
+        </nav>
+        <form class="search-form">
+            <input type="text" class="rounded" name="search" id="search_products" placeholder="جستجوی محصولات">
+            <input type="image" src="/images/search-icon.png" alt="search-icon">
+        </form>
+    </div>
+</div>

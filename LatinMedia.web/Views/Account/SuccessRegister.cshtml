@@ -1,0 +1,17 @@
+﻿@model LatinMedia.DataLayer.Entities.User.User
+<br />
+<div class="alert alert-success text-center" >
+    <p>
+        @(Model.FirstName + " " + Model.LastName)
+        عزیز !
+        
+        <br />
+        ثبت نام شما با موفقیت انجام شد،ایمیلی حاوی لینک فعال سازی به ایمیل
+        <span>
+            "@Model.Email""
+        </span>ارسال شد
+          <br />
+       وارد ایمیل خود شوید و روی لینک فعال سازی کلیک نمایید.
+    </p>
+</div>
+

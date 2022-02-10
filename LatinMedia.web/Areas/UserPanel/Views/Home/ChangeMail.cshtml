@@ -1,0 +1,56 @@
+﻿@model LatinMedia.Core.ViewModels.ChaneMailViewModel
+@{
+    ViewData["Title"] = "تغییر ایمیل کاربری";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+    <div class="content">
+        <div class="container-fluid">
+            <form asp-action="ChangeMail" method="post">
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title">تغییر ایمیل کاربری</h4>
+                                <p class="card-category"></p>
+                            </div>
+                            <div class="card-body">
+                             
+                                <div class="row">
+
+                                    <div class="col-md-4">
+                                        <div class="form-group bmd-form-group">
+                                            <label class="bmd-label-floating" asp-for="Email"></label>
+                                            <input asp-for="Email" type="email" class="form-control">
+                                        </div>
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group bmd-form-group">
+                                            <label asp-for="ReEmail" class="bmd-label-floating"></label>
+                                            <input class="form-control" asp-for="ReEmail" type="email">
+                                        </div>
+                                        <span asp-validation-for="ReEmail" class="text-danger"></span>
+                                    </div>
+
+
+                               
+                                </div>
+
+                                <br />
+
+                                <button class="btn btn-primary pull-right" type="submit">ادامه</button>
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,590 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Areas\UserPanel\Views\UserContent\css\.DS_Store" />
+    <None Remove="Areas\UserPanel\Views\UserContent\css\material-dashboard-rtl.css" />
+    <None Remove="Areas\UserPanel\Views\UserContent\css\material-dashboard.css" />
+    <None Remove="Areas\UserPanel\Views\UserContent\css\material-dashboard.css.map" />
+    <None Remove="Areas\UserPanel\Views\UserContent\css\material-dashboard.min.css" />
+    <None Remove="Areas\UserPanel\Views\UserContent\demo\demo.css" />
+    <None Remove="Areas\UserPanel\Views\UserContent\demo\demo.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\demo\docs.css" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\apple-icon.png" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\cover.jpg" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\faces\avatar.jpg" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\faces\card-profile1-square.jpg" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\faces\card-profile2-square.jpg" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\faces\marc.jpg" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\favicon.png" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\mask.png" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\new_logo.png" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\sidebar-1.jpg" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\sidebar-2.jpg" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\sidebar-3.jpg" />
+    <None Remove="Areas\UserPanel\Views\UserContent\img\sidebar-4.jpg" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\.DS_Store" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\core\bootstrap-material-design.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\core\jquery.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\core\popper.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\material-dashboard.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\material-dashboard.js.map" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\material-dashboard.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\arrive.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\bootstrap-datetimepicker.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\bootstrap-notify.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\bootstrap-selectpicker.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\bootstrap-tagsinput.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\chartist.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\fullcalendar.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\jasny-bootstrap.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\jquery-jvectormap.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\jquery.bootstrap-wizard.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\jquery.dataTables.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\jquery.tagsinput.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\jquery.validate.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\moment.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\nouislider.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\perfect-scrollbar.jquery.min.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\js\plugins\sweetalert2.js" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\bootstrap-grid.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\bootstrap-reboot.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\bootstrap.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\mixins\_alert.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_alert.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_badge.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_breadcrumb.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_button-group.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_buttons.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_card.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_carousel.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_close.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_code.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_custom-forms.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_dropdown.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_forms.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_functions.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_grid.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_images.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_input-group.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_jumbotron.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_list-group.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_media.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_mixins.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_modal.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_nav.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_navbar.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_pagination.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_popover.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_print.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_progress.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_reboot.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_root.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_tables.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_tooltip.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_transitions.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_type.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_utilities.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_variables.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_alerts.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_buttons.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_cards.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_checkboxes.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_core-bootstrap.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_dropdown.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_example-pages.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_fixed-plugin.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_footers.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_forms.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_headers.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_images.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_info-areas.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_input-group.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_misc.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_mixins.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_navbar.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_popover.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_popups.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_radios.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_responsive.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_ripples.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_sidebar-and-main-panel.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_social-buttons.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_tables.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_tabs.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_togglebutton.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_tooltip.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_type.scss" />
+    <None Remove="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_variables.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Areas\UserPanel\Views\UserContent\css\.DS_Store">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\css\material-dashboard-rtl.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\css\material-dashboard.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\css\material-dashboard.css.map">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\css\material-dashboard.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\demo\demo.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\demo\demo.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\demo\docs.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\apple-icon.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\cover.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\faces\avatar.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\faces\card-profile1-square.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\faces\card-profile2-square.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\faces\marc.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\favicon.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\mask.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\new_logo.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\sidebar-1.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\sidebar-2.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\sidebar-3.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\img\sidebar-4.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\.DS_Store">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\core\bootstrap-material-design.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\core\jquery.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\core\popper.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\material-dashboard.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\material-dashboard.js.map">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\material-dashboard.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\arrive.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\bootstrap-datetimepicker.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\bootstrap-notify.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\bootstrap-selectpicker.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\bootstrap-tagsinput.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\chartist.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\fullcalendar.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\jasny-bootstrap.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\jquery-jvectormap.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\jquery.bootstrap-wizard.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\jquery.dataTables.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\jquery.tagsinput.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\jquery.validate.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\moment.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\nouislider.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\perfect-scrollbar.jquery.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\js\plugins\sweetalert2.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\bootstrap-grid.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\bootstrap-reboot.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\bootstrap.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\mixins\_alert.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_alert.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_badge.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_breadcrumb.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_button-group.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_buttons.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_card.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_carousel.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_close.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_code.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_custom-forms.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_dropdown.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_forms.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_functions.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_grid.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_images.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_input-group.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_jumbotron.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_list-group.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_media.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_mixins.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_modal.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_nav.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_navbar.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_pagination.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_popover.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_print.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_progress.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_reboot.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_root.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_tables.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_tooltip.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_transitions.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_type.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_utilities.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\bootstrap\scss\_variables.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_alerts.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_buttons.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_cards.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_checkboxes.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_core-bootstrap.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_dropdown.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_example-pages.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_fixed-plugin.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_footers.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_forms.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_headers.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_images.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_info-areas.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_input-group.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_misc.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_mixins.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_navbar.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_popover.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_popups.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_radios.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_responsive.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_ripples.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_sidebar-and-main-panel.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_social-buttons.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_tables.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_tabs.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_togglebutton.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_tooltip.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_type.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\UserContent\scss\material-dashboard\_variables.scss">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\AdminContent\bootstrap-daterangepicker\js\daterangepicker.js" />
+    <None Include="wwwroot\AdminContent\bootstrap-progressbar\js\bootstrap-progressbar.min.js" />
+    <None Include="wwwroot\AdminContent\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\AdminContent\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\AdminContent\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\AdminContent\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\AdminContent\build\fonts\B_Yekan.svg" />
+    <None Include="wwwroot\AdminContent\build\fonts\DroidKufi-Regular.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\AdminContent\build\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\openSans-400.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\openSans-600.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\openSans-700.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb%28FaNum%29.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb%28FaNum%29_Black.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb%28FaNum%29_Bold.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb%28FaNum%29_Light.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb%28FaNum%29_Medium.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb%28FaNum%29_UltraLight.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb_Black.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb_Bold.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb_Light.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb_Medium.woff2" />
+    <None Include="wwwroot\AdminContent\build\fonts\woff2\IRANSansWeb_UltraLight.woff2" />
+    <None Include="wwwroot\AdminContent\build\js\custom.min.js" />
+    <None Include="wwwroot\AdminContent\datetimepicker\ha-datetimepicker.min.js" />
+    <None Include="wwwroot\AdminContent\datetimepicker\ha-dp-fonts\Roboto-Regular.woff2" />
+    <None Include="wwwroot\AdminContent\datetimepicker\ha-dp-fonts\subset-DINNextLTW23-Regular.woff2" />
+    <None Include="wwwroot\AdminContent\datetimepicker\ha-solardate.min.js" />
+    <None Include="wwwroot\AdminContent\fastclick\lib\fastclick.js" />
+    <None Include="wwwroot\AdminContent\font-awesome\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\AdminContent\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\AdminContent\iCheck\js\icheck.min.js" />
+    <None Include="wwwroot\AdminContent\jquery\jquery.min.js" />
+    <None Include="wwwroot\AdminContent\jquery\jquery.min.map" />
+    <None Include="wwwroot\AdminContent\moment\js\moment.js" />
+    <None Include="wwwroot\AdminContent\nprogress\js\nprogress.js" />
+    <None Include="wwwroot\AdminContent\switchery\js\switchery.min.js" />
+    <None Include="wwwroot\AdminContent\validator\js\jquery.unobtrusive-ajax.min.js" />
+    <None Include="wwwroot\AdminContent\validator\js\jquery.validate.min.js" />
+    <None Include="wwwroot\AdminContent\validator\js\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\AdminContent\validator\js\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\AdminContent\validator\js\validator.js" />
+    <None Include="wwwroot\js\auction-page.js" />
+    <None Include="wwwroot\js\author-profile-reviews.js" />
+    <None Include="wwwroot\js\author-profile.js" />
+    <None Include="wwwroot\js\badges.js" />
+    <None Include="wwwroot\js\checkbox-link.js" />
+    <None Include="wwwroot\js\flag-badges.js" />
+    <None Include="wwwroot\js\follow.js" />
+    <None Include="wwwroot\js\footer.js" />
+    <None Include="wwwroot\js\home-v2.js" />
+    <None Include="wwwroot\js\home.js" />
+    <None Include="wwwroot\js\image-slides.js" />
+    <None Include="wwwroot\js\item-v1.js" />
+    <None Include="wwwroot\js\item-v2.js" />
+    <None Include="wwwroot\js\jquery.unobtrusive-ajax.min.js" />
+    <None Include="wwwroot\js\jquery.validate.min.js" />
+    <None Include="wwwroot\js\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\js\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\js\liquid.js" />
+    <None Include="wwwroot\js\post-tab.js" />
+    <None Include="wwwroot\js\product-page.js" />
+    <None Include="wwwroot\js\radio-link.js" />
+    <None Include="wwwroot\js\service-page.js" />
+    <None Include="wwwroot\js\shop.js" />
+    <None Include="wwwroot\js\shop2.js" />
+    <None Include="wwwroot\js\shop3.js" />
+    <None Include="wwwroot\js\side-menu.js" />
+    <None Include="wwwroot\js\sidebar-menu.js" />
+    <None Include="wwwroot\js\tooltip.js" />
+    <None Include="wwwroot\js\user-board.js" />
+    <None Include="wwwroot\js\vendor\imgLiquid-min.js" />
+    <None Include="wwwroot\js\vendor\jquery-3.1.0.min.js" />
+    <None Include="wwwroot\js\vendor\jquery.magnific-popup.min.js" />
+    <None Include="wwwroot\js\vendor\jquery.range.min.js" />
+    <None Include="wwwroot\js\vendor\jquery.tooltipster.min.js" />
+    <None Include="wwwroot\js\vendor\jquery.xmaccordion.min.js" />
+    <None Include="wwwroot\js\vendor\jquery.xmcountdown.min.js" />
+    <None Include="wwwroot\js\vendor\jquery.xmlinefill.min.js" />
+    <None Include="wwwroot\js\vendor\jquery.xmpiechart.min.js" />
+    <None Include="wwwroot\js\vendor\jquery.xmtab.min.js" />
+    <None Include="wwwroot\js\vendor\owl.carousel.min.js" />
+    <None Include="wwwroot\js\vendor\twitter\jquery.tweet.min.js" />
+    <None Include="wwwroot\lib\toastr\toastr.css" />
+    <None Include="wwwroot\lib\toastr\toastr.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CoreCompat.System.Drawing" Version="1.0.0-beta006" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Services.Client" Version="16.153.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+    <PackageReference Include="ZarinpalSandbox" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LatinMedia.Core\LatinMedia.Core.csproj" />
+    <ProjectReference Include="..\LatinMedia.DataLayer\LatinMedia.DataLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\course\images\" />
+    <Folder Include="wwwroot\course\download\" />
+    <Folder Include="wwwroot\Upload\" />
+  </ItemGroup>
+
+</Project>

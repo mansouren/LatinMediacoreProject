@@ -1,0 +1,713 @@
+﻿@using LatinMedia.Core.Convertors
+@using LatinMedia.Core.Security
+@using LatinMedia.Core.Services.Interfaces
+@model LatinMedia.DataLayer.Entities.Course.Course
+@inject IOrderService OrderService
+@{
+    ViewData["Title"] = Model.CourseFaTitle;
+    bool isUserInCourse = false;
+    if (User.Identity.IsAuthenticated)
+    {
+        isUserInCourse = OrderService.IsUserInCourse(User.Identity.GetEmail(), Model.CourseId);
+    }
+}
+
+
+
+
+<div class="section-headline-wrap">
+    <div class="section-headline">
+        <h2>@(Model.CourseLatinTitle + " - " + Model.CourseFaTitle)</h2>
+
+    </div>
+</div>
+
+
+<div class="section-wrap">
+    <div class="section">
+        <!-- SIDEBAR -->
+        <div class="sidebar right">
+            <!-- SIDEBAR ITEM -->
+            <div class="sidebar-item">
+                <br />
+                @if (!isUserInCourse)
+                {
+                    <a href="/Course/BuyCourse/@Model.CourseId" class="button big dark purchase">
+                        <span class=""> @Model.CoursePrice.ToString("#,0")</span> &nbsp;&nbsp;
+                        <span class="primary">خریداری دوره</span>
+                    </a>
+                }
+                else
+                {
+                    <span class="alert alert-danger bold" style="font-family: B nazanin">
+                        شما قبلا دوره را خریداری کرده اید
+                    </span>
+                }
+
+
+                <hr class="line-separator">
+
+
+                <div class="clearfix"></div>
+            </div>
+            <!-- /SIDEBAR ITEM -->
+            <!-- SIDEBAR ITEM -->
+            <div class="sidebar-item author-bio">
+                <h4>مدرس دوره</h4>
+                <hr class="line-separator">
+                <!-- USER AVATAR -->
+                <a href="user-profile.html" class="user-avatar-wrap medium">
+                    <figure class="user-avatar medium">
+                        <img src="/images/teachers/@Model.Teacher.TeacherImageName" alt="">
+                    </figure>
+                </a>
+                <!-- /USER AVATAR -->
+                <p class="text-header">@(Model.Teacher.TeacherNameFa + " - " + Model.Teacher.TeacherNameEn)</p>
+                <p class="text-oneline"> @Model.Company.CompanyTitle توسعه دهنده شرکت <br></p>
+
+
+                <a href="/Course?teacherId=@Model.Teacher.TeacherId" class="button mid dark spaced">دوره های این مدرس</a>
+
+            </div>
+
+
+            <div class="sidebar-item author-bio">
+                <h4>شرکت تولیده کننده</h4>
+                <hr class="line-separator">
+                <!-- USER AVATAR -->
+                <a href="user-profile.html" class="user-avatar-wrap medium">
+
+                    <img src="/images/company/@Model.Company.CompanyImageName" class="center" height="60" alt="">
+
+                </a>
+                <!-- /USER AVATAR -->
+                <p class="text-header"> @(Model.Company.CompanyTitle) شرکت</p>
+
+
+
+                <a href="/Course?companyId=@Model.Company.CompanyId" class="button mid dark spaced">دوره های این شرکت</a>
+
+            </div>
+            <!-- /SIDEBAR ITEM -->
+            <!-- SIDEBAR ITEM -->
+            <div class="sidebar-item product-info">
+                <h4>اطلاعات محصول</h4>
+                <hr class="line-separator">
+                <!-- INFORMATION LAYOUT -->
+                <div class="information-layout">
+                    <!-- INFORMATION LAYOUT ITEM -->
+                    <div class="information-layout-item">
+                        <p class="text-header">حجم اموزش</p>
+                        <p> مگابایت @Model.Volume  </p>
+                    </div>
+                    <!-- /INFORMATION LAYOUT ITEM -->
+                    <!-- INFORMATION LAYOUT ITEM -->
+                    <div class="information-layout-item">
+                        <p class="text-header">تاریخ انتشار</p>
+                        <p>@Model.CreateDate.ConvertMiladiToShamsi("dddd dd MMMM yyyy")</p>
+                    </div>
+                    <!-- /INFORMATION LAYOUT ITEM -->
+                    <!-- INFORMATION LAYOUT ITEM -->
+                    <div class="information-layout-item">
+                        <p class="text-header">مدت زمان آموزش</p>
+                        <p> @Model.CourseTime</p>
+                    </div>
+                    <!-- /INFORMATION LAYOUT ITEM -->
+                    <!-- INFORMATION LAYOUT ITEM -->
+                    <div class="information-layout-item">
+                        <p class="text-header">زبان اموزش</p>
+                        <p>@Model.Language</p>
+                    </div>
+                    <!-- /INFORMATION LAYOUT ITEM -->
+                    <!-- INFORMATION LAYOUT ITEM -->
+                    <div class="information-layout-item">
+                        <p class="text-header">زیر نویس</p>
+                        @if (Model.IsSubTitle)
+                        {
+                            <p>دارد</p>
+                        }
+                        else
+                        {
+                            <p>ندارد</p>
+                        }
+                    </div>
+
+                    <div class="information-layout-item">
+                        <p class="text-header">تعداد خرید این دوره</p>
+                        <p>@Model.UserCourses.Count</p>
+                    </div>
+
+                    <!-- /INFORMATION LAYOUT ITEM -->
+                    <!-- INFORMATION LAYOUT ITEM -->
+                    <div class="information-layout-item">
+                        <p class="tags primary"><a href="#">فتوشاپ</a>, <a href="#">flat</a>, <a href="#">آیکن</a>, <a href="#">دستگاه ها</a>, <a href="#">موبایل</a>, <a href="#">وکتور</a>, <a href="#">قهوه</a>, <a href="#">scene</a>, <a href="#">قهرمان</a>, <a href="#">تصویر</a>, <a href="#">سازنده</a>, <a href="#">تنظیم</a>, <a href="#">تبلت</a>, <a href="#">لپ تاپ</a>, <a href="#">پیکرنما</a></p>
+                    </div>
+                    <!-- /INFORMATION LAYOUT ITEM -->
+                </div>
+                <!-- INFORMATION LAYOUT -->
+            </div>
+
+
+            <div class="sidebar-item">
+                <h4>برچسبها</h4>
+                <hr class="line-separator">
+                <!-- TAG LIST -->
+                <div class="tag-list primary">
+                    @foreach (string tags in Model.Tags.Split('-', StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        <a href="/Course?filter=@tags" class="tag-list-item">@tags</a>
+                    }
+
+
+                </div>
+                <!-- /TAG LIST -->
+            </div>
+
+
+            <div class="sidebar-item">
+                <h4>مسیر اموزشی</h4>
+                <hr class="line-separator">
+                <!-- TAG LIST -->
+                <div class="tag-list primary">
+
+                    @if (Model.GroupId != null)
+                    {
+                        <a href="/Course?selectedGroups=@Model.GroupId" class="tag-list-item">@Model.CourseGroup.GroupTitle</a>
+                    }
+
+                    @if (Model.SubGroupId != null)
+                    {
+                        <a href="/Course?selectedGroups=@Model.SubGroupId" class="tag-list-item">@Model.SubGroup.GroupTitle</a>
+                    }
+
+                    @if (Model.SecondSubGroupId != null)
+                    {
+                        <a href="/Course?selectedGroups=@Model.SecondSubGroupId" class="tag-list-item">@Model.SecondSubGroup.GroupTitle</a>
+                    }
+
+
+                </div>
+                <!-- /TAG LIST -->
+            </div>
+            <!-- /SIDEBAR ITEM -->
+            <!-- SIDEBAR ITEM -->
+            <div class="sidebar-item author-reputation full">
+                <h4>اعتبار محصول</h4>
+                <hr class="line-separator">
+                <!-- PIE CHART -->
+                <div class="pie-chart pie-chart1 xmpiechart" style="width: 176px; height: 176px; position: relative;">
+                    <p class="text-header percent">86<span>%</span></p>
+                    <p class="text-header percent-info">توصیه شده</p>
+                    <!-- RATING -->
+                    <ul class="rating">
+                        <li class="rating-item">
+                            <!-- SVG STAR -->
+                            <svg class="svg-star">
+                                <use xlink:href="#svg-star"></use>
+                            </svg>
+                            <!-- /SVG STAR -->
+                        </li>
+                        <li class="rating-item">
+                            <!-- SVG STAR -->
+                            <svg class="svg-star">
+                                <use xlink:href="#svg-star"></use>
+                            </svg>
+                            <!-- /SVG STAR -->
+                        </li>
+                        <li class="rating-item">
+                            <!-- SVG STAR -->
+                            <svg class="svg-star">
+                                <use xlink:href="#svg-star"></use>
+                            </svg>
+                            <!-- /SVG STAR -->
+                        </li>
+                        <li class="rating-item">
+                            <!-- SVG STAR -->
+                            <svg class="svg-star">
+                                <use xlink:href="#svg-star"></use>
+                            </svg>
+                            <!-- /SVG STAR -->
+                        </li>
+                        <li class="rating-item empty">
+                            <!-- SVG STAR -->
+                            <svg class="svg-star">
+                                <use xlink:href="#svg-star"></use>
+                            </svg>
+                            <!-- /SVG STAR -->
+                        </li>
+                    </ul>
+                    <!-- /RATING -->
+                    <canvas width="176" height="176" style="position: absolute; z-index: 0; top: 0px; left: 0px;"></canvas><canvas class="chartLine" width="176" height="176" style="position: absolute; z-index: 1; top: 0px; left: 0px;"></canvas>
+                </div>
+                <!-- /PIE CHART -->
+                <a href="#" class="button mid dark-light">بررسی مشتری</a>
+            </div>
+            <!-- /SIDEBAR ITEM -->
+            <!-- SIDEBAR ITEM -->
+            <div class="sidebar-item author-items">
+                <h4>آیتم های بیشتر </h4>
+                <!-- PRODUCT LIST -->
+                <div class="product-list grid column4-wrap">
+                    <!-- PRODUCT ITEM -->
+                    <div class="product-item column">
+                        <!-- PIN -->
+                        <span class="pin featured">ویژگی</span>
+                        <!-- /PIN -->
+                        <!-- PRODUCT PREVIEW ACTIONS -->
+                        <div class="product-preview-actions">
+                            <!-- PRODUCT PREVIEW IMAGE -->
+                            <figure class="product-preview-image">
+                                <img src="images/items/flat_m.jpg" alt="product-image">
+                            </figure>
+                            <!-- /PRODUCT PREVIEW IMAGE -->
+                            <!-- PREVIEW ACTIONS -->
+                            <div class="preview-actions">
+                                <!-- PREVIEW ACTION -->
+                                <div class="preview-action">
+                                    <a href="item-v1.html">
+                                        <div class="circle tiny primary">
+                                            <span class="icon-tag"></span>
+                                        </div>
+                                    </a>
+                                    <a href="item-v1.html">
+                                        <p>نمایش</p>
+                                    </a>
+                                </div>
+                                <!-- /PREVIEW ACTION -->
+                                <!-- PREVIEW ACTION -->
+                                <div class="preview-action">
+                                    <a href="#">
+                                        <div class="circle tiny secondary">
+                                            <span class="icon-heart"></span>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <p>علاقه مندیها +</p>
+                                    </a>
+                                </div>
+                                <!-- /PREVIEW ACTION -->
+                            </div>
+                            <!-- /PREVIEW ACTIONS -->
+                        </div>
+                        <!-- /PRODUCT PREVIEW ACTIONS -->
+                        <!-- PRODUCT INFO -->
+                        <div class="product-info">
+                            <a href="item-v1.html">
+                                <p class="text-header">Flatland - تصویر قهرمان آهنگ ساز</p>
+                            </a>
+                            <p class="product-description">تولید کننده لورم ایپسوم فارسی</p>
+                            <a href="shop-gridview-v1.html">
+                                <p class="category primary">تصویر قهرمان</p>
+                            </a>
+                            <p class="price"><span>تومان</span>12</p>
+                        </div>
+                        <!-- /PRODUCT INFO -->
+                        <hr class="line-separator">
+
+                        <!-- USER RATING -->
+                        <div class="user-rating">
+                            <a href="author-profile.html">
+                                <figure class="user-avatar small">
+                                    <img src="images/avatars/avatar_09.jpg" alt="user-avatar">
+                                </figure>
+                            </a>
+                            <a href="author-profile.html">
+                                <p class="text-header tiny">طراحی_اودین</p>
+                            </a>
+                            <ul class="rating tooltip tooltipstered">
+                                <li class="rating-item">
+                                    <!-- SVG STAR -->
+                                    <svg class="svg-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /SVG STAR -->
+                                </li>
+                                <li class="rating-item">
+                                    <!-- SVG STAR -->
+                                    <svg class="svg-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /SVG STAR -->
+                                </li>
+                                <li class="rating-item">
+                                    <!-- SVG STAR -->
+                                    <svg class="svg-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /SVG STAR -->
+                                </li>
+                                <li class="rating-item">
+                                    <!-- SVG STAR -->
+                                    <svg class="svg-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /SVG STAR -->
+                                </li>
+                                <li class="rating-item">
+                                    <!-- SVG STAR -->
+                                    <svg class="svg-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /SVG STAR -->
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /USER RATING -->
+                    </div>
+                    <!-- /PRODUCT ITEM -->
+                    <!-- PRODUCT ITEM -->
+                    <div class="product-item column">
+                        <!-- PRODUCT PREVIEW ACTIONS -->
+                        <div class="product-preview-actions">
+                            <!-- PRODUCT PREVIEW IMAGE -->
+                            <figure class="product-preview-image">
+                                <img src="images/items/pixel_m.jpg" alt="product-image">
+                            </figure>
+                            <!-- /PRODUCT PREVIEW IMAGE -->
+                            <!-- PREVIEW ACTIONS -->
+                            <div class="preview-actions">
+                                <!-- PREVIEW ACTION -->
+                                <div class="preview-action">
+                                    <a href="item-v1.html">
+                                        <div class="circle tiny primary">
+                                            <span class="icon-tag"></span>
+                                        </div>
+                                    </a>
+                                    <a href="item-v1.html">
+                                        <p>نمایش</p>
+                                    </a>
+                                </div>
+                                <!-- /PREVIEW ACTION -->
+                                <!-- PREVIEW ACTION -->
+                                <div class="preview-action">
+                                    <a href="#">
+                                        <div class="circle tiny secondary">
+                                            <span class="icon-heart"></span>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <p>علاقه مندیها +</p>
+                                    </a>
+                                </div>
+                                <!-- /PREVIEW ACTION -->
+                            </div>
+                            <!-- /PREVIEW ACTIONS -->
+                        </div>
+                        <!-- /PRODUCT PREVIEW ACTIONS -->
+                        <!-- PRODUCT INFO -->
+                        <div class="product-info">
+                            <a href="item-v1.html">
+                                <p class="text-header">فروشگاه بازی پیکسل الماس</p>
+                            </a>
+                            <p class="product-description">تولید کننده لورم ایپسوم فارسی </p>
+                            <a href="shop-gridview-v1.html">
+                                <p class="category primary">سایت کودک</p>
+                            </a>
+                            <p class="price"><span>تومان</span>86</p>
+                        </div>
+                        <!-- /PRODUCT INFO -->
+                        <hr class="line-separator">
+
+                        <!-- USER RATING -->
+                        <div class="user-rating">
+                            <a href="author-profile.html">
+                                <figure class="user-avatar small">
+                                    <img src="images/avatars/avatar_06.jpg" alt="user-avatar">
+                                </figure>
+                            </a>
+                            <a href="author-profile.html">
+                                <p class="text-header tiny">سارا</p>
+                            </a>
+                            <ul class="rating tooltip tooltipstered">
+                                <li class="rating-item">
+                                    <!-- SVG STAR -->
+                                    <svg class="svg-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /SVG STAR -->
+                                </li>
+                                <li class="rating-item">
+                                    <!-- SVG STAR -->
+                                    <svg class="svg-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /SVG STAR -->
+                                </li>
+                                <li class="rating-item">
+                                    <!-- SVG STAR -->
+                                    <svg class="svg-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /SVG STAR -->
+                                </li>
+                                <li class="rating-item">
+                                    <!-- SVG STAR -->
+                                    <svg class="svg-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /SVG STAR -->
+                                </li>
+                                <li class="rating-item empty">
+                                    <!-- SVG STAR -->
+                                    <svg class="svg-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /SVG STAR -->
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /USER RATING -->
+                    </div>
+                    <!-- /PRODUCT ITEM -->
+                </div>
+                <!-- /PRODUCT LIST -->
+                <div class="clearfix"></div>
+            </div>
+            <!-- /SIDEBAR ITEM -->
+        </div>
+        <!-- /SIDEBAR -->
+        <!-- CONTENT -->
+        <div class="content left">
+            <!-- POST -->
+            <article class="post">
+                <!-- POST IMAGE -->
+                <div class="post-image">
+                    <figure class="product-preview-image large liquid imgLiquid_bgSize imgLiquid_ready">
+                        <img src="/course/images/@Model.CourseImageName" alt="">
+                    </figure>
+
+
+                </div>
+                <!-- /POST IMAGE -->
+
+
+                <hr class="line-separator">
+
+                <!-- POST CONTENT -->
+                <div class="post-content">
+                    <!-- POST PARAGRAPH -->
+                    <div class="post-paragraph">
+                        <h3 class="post-title">توضیحات دوره اموزشی @Model.CourseFaTitle</h3>
+                        <p>
+                            @Html.Raw(Model.CourseDescription)
+                        </p>
+                    </div>
+
+                    <div class="post-paragraph">
+                        @if (Model.DemoFileName != null)
+                        {
+                            <h2 style="text-align: right">دمو اموزشی </h2>
+                            <hr />
+                            <video src="@Model.DemoFileName" style="height: 400px" controls preload="true"></video>
+                        }
+                    </div>
+
+                    <!-- /POST PARAGRAPH -->
+
+                    <div class="clearfix"></div>
+                </div>
+                <!-- /POST CONTENT -->
+
+                <hr class="line-separator">
+
+                <!-- SHARE -->
+                <div class="share-links-wrap">
+                    <p class="text-header small">به اشتراک بگذارید</p>
+                    <!-- SHARE LINKS -->
+                    <ul class="share-links hoverable">
+                        <li><a href="#" class="fb"></a></li>
+                        <li><a href="#" class="twt"></a></li>
+                        <li><a href="#" class="db"></a></li>
+                        <li><a href="#" class="rss"></a></li>
+                        <li><a href="#" class="gplus"></a></li>
+                    </ul>
+                    <!-- /SHARE LINKS -->
+                </div>
+                <!-- /SHARE -->
+            </article>
+            <!-- /POST -->
+            <!-- POST TAB -->
+            <div class="post-tab xmtab" style="display: block;">
+                <!-- TAB HEADER -->
+                <div class="tab-header primary">
+                    <!-- TAB ITEM -->
+                    <div class="tab-item selected">
+                        <p class="text-header">نظرات (35)</p>
+                    </div>
+                    <!-- /TAB ITEM -->
+
+
+                </div>
+                <!-- /TAB HEADER -->
+                <!-- TAB CONTENT -->
+                <div class="tab-content void open">
+                    <!-- COMMENTS -->
+
+
+
+                    <div class="comment-list">
+                        <!-- COMMENT -->
+                        <!-- COMMENT REPLY FORM -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <h3>پیام بگذارید</h3>
+                            <form asp-action="CreateComment" asp-controller="Course" class="comment-reply-form"
+                                  data-ajax="true"
+                                  data-ajax-mode="replace"
+                                  data-ajax-update="#listComment"
+                                  data-ajax-success="Success">
+                                <input type="hidden" name="comment.CourseId" value="@Model.CourseId" />
+                                <textarea name="comment.Comment" id="comment_Comment" placeholder="متن دیدگاه خود رااینجا بنویسید"></textarea>
+
+                                <button class="button primary">ارسال نظر</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger text-center">
+                                <span style="font-family: 'B Yekan'">
+                                    برای ارسال نظر باید وارد
+                                    <a href="/Login">حساب کاربری</a>
+                                    خود شوید
+                                </span>
+                            </div>
+                        }
+
+                        <hr class="line-separator">
+                        <!-- /COMMENT REPLY FORM -->
+
+                        <div id="listComment">
+                            <!--Load Comments by Paging-->
+                        </div>
+
+
+                        <div class="clearfix"></div>
+
+
+
+
+
+                    </div>
+                    <!-- /COMMENT REPLY -->
+                </div>
+                <!-- /COMMENTS -->
+            </div>
+            <!-- /TAB CONTENT -->
+            <!-- TAB CONTENT -->
+            <div class="tab-content closed">
+                <!-- ITEM-FAQ -->
+                <div class="accordion item-faq primary">
+                    <!-- ACCORDION ITEM -->
+                    <div class="accordion-item">
+                        <h6 class="accordion-item-header">قبل از خرید بخوانید</h6>
+                        <!-- SVG ARROW -->
+                        <svg class="svg-arrow">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /SVG ARROW -->
+                        <div class="accordion-item-content">
+                            <h4>مناقصه برای اولین بار</h4>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                            <h4>برنده شدن در مزایده</h4>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                        </div>
+                    </div>
+                    <!-- /ACCORDION ITEM -->
+                    <!-- ACCORDION ITEM -->
+                    <div class="accordion-item selected">
+                        <h6 class="accordion-item-header">مناقصه چگونه انجام می شود؟</h6>
+                        <!-- SVG ARROW -->
+                        <svg class="svg-arrow">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /SVG ARROW -->
+                        <div class="accordion-item-content" style="display: block;">
+                            <h4>مناقصه برای اولین بار</h4>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                            <h4>برنده شدن در مزایده</h4>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                        </div>
+                    </div>
+                    <!-- /ACCORDION ITEM -->
+                    <!-- ACCORDION ITEM -->
+                    <div class="accordion-item">
+                        <h6 class="accordion-item-header">سیاست ما برای ارجاع کالا</h6>
+                        <!-- SVG ARROW -->
+                        <svg class="svg-arrow">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /SVG ARROW -->
+                        <div class="accordion-item-content">
+                            <h4>مناقصه برای اولین بار</h4>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                            <h4>برنده شدن در مزایده</h4>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                        </div>
+                    </div>
+                    <!-- /ACCORDION ITEM -->
+                    <!-- ACCORDION ITEM -->
+                    <div class="accordion-item">
+                        <h6 class="accordion-item-header">حمل و نقل و تحویل</h6>
+                        <!-- SVG ARROW -->
+                        <svg class="svg-arrow">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /SVG ARROW -->
+                        <div class="accordion-item-content">
+                            <h4>مناقصه برای اولین بار</h4>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                            <h4>برنده شدن در مزایده</h4>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                        </div>
+                    </div>
+                    <!-- /ACCORDION ITEM -->
+                    <!-- ACCORDION ITEM -->
+                    <div class="accordion-item">
+                        <h6 class="accordion-item-header">تضمین کیفیت</h6>
+                        <!-- SVG ARROW -->
+                        <svg class="svg-arrow">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                        <!-- /SVG ARROW -->
+                        <div class="accordion-item-content">
+                            <h4>مناقصه برای اولین بار</h4>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                            <h4>برنده شدن در مزایده</h4>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                        </div>
+                    </div>
+                    <!-- /ACCORDION ITEM -->
+                </div>
+                <!-- /ITEM-FAQ -->
+            </div>
+            <!-- /TAB CONTENT -->
+        </div>
+        <!-- /POST TAB -->
+    </div>
+    <!-- CONTENT -->
+</div>
+
+
+@section Scripts
+    {
+
+    <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
+
+    <script>
+        function Success() {
+            $("#comment_Comment").val("");
+
+            toastr.options.progressBar = true;
+            toastr.success("نظر شما با موفقیت ثبت گردید");
+        }
+
+        $("#listComment").load("/Course/ShowComments/" + @Model.CourseId);
+
+        function pageComment(pageId) {
+            $("#listComment").load("/Course/ShowComments/" + @Model.CourseId + "?pageId=" + pageId);
+        }
+    </script>
+}
+
+
+
