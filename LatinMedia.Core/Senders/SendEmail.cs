@@ -23,7 +23,7 @@ namespace LatinMedia.Core.Senders
             // mail.Attachments.Add(attachment);
             
             SmtpServer.Port = 587;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("educationmediacore@gmail.com", "41854185mn");
+            SmtpServer.Credentials = new System.Net.NetworkCredential("educationmediacore@gmail.com", "");
             SmtpServer.EnableSsl = true;
             //SmtpServer.UseDefaultCredentials = false;
             SmtpServer.Send(mail);
